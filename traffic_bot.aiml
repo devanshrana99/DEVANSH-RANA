@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+
+  <!-- ===== GREETINGS ===== -->
+  <category>
+    <pattern>HELLO</pattern>
+    <template>Hello! I'm TrafficBot 🚦 I can help you with real-time traffic congestion predictions, route advice, and traffic insights. What would you like to know?</template>
+  </category>
+
+  <category>
+    <pattern>HI</pattern>
+    <template>Hi there! 👋 Ask me about traffic conditions, congestion predictions, or best times to travel. How can I assist you?</template>
+  </category>
+
+  <category>
+    <pattern>HEY</pattern>
+    <template><srai>HI</srai></template>
+  </category>
+
+  <category>
+    <pattern>GOOD MORNING</pattern>
+    <template>Good morning! 🌅 Morning rush hour is typically between 8-10 AM. Check the live dashboard for current congestion levels before heading out!</template>
+  </category>
+
+  <category>
+    <pattern>GOOD EVENING</pattern>
+    <template>Good evening! 🌆 Evening rush hour usually peaks between 5-8 PM. The dashboard shows live predictions for your route.</template>
+  </category>
+
+  <!-- ===== CONGESTION QUERIES ===== -->
+  <category>
+    <pattern>WHAT IS TRAFFIC LIKE</pattern>
+    <template>I'm analyzing live sensor data right now! 📊 Check the dashboard map for real-time congestion levels. The CNN model updates predictions every 60 seconds based on speed, volume, and occupancy data.</template>
+  </category>
+
+  <category>
+    <pattern>HOW IS THE TRAFFIC</pattern>
+    <template><srai>WHAT IS TRAFFIC LIKE</srai></template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS CONGESTION</pattern>
+    <template>Traffic congestion occurs when traffic demand exceeds road capacity. Our system measures 4 levels:
+🟢 Free Flow (0-25%): Speed &gt; 90 km/h, smooth movement
+🟡 Moderate (25-55%): Speed 60-90 km/h, slight delays
+🟠 Heavy (55-78%): Speed 30-60 km/h, significant slowdown
+🔴 Severe (&gt;78%): Speed &lt; 30 km/h, gridlock conditions</template>
+  </category>
+
+  <category>
+    <pattern>EXPLAIN CONGESTION LEVELS</pattern>
+    <template><srai>WHAT IS CONGESTION</srai></template>
+  </category>
+
+  <!-- ===== CNN MODEL QUERIES ===== -->
+  <category>
+    <pattern>HOW DOES THE PREDICTION WORK</pattern>
+    <template>Our system uses a Convolutional Neural Network (CNN) 🤖:
+1️⃣ Collects 24-hour traffic data (speed, volume, occupancy)
+2️⃣ CNN analyzes spatial-temporal patterns in the data
+3️⃣ 3-layer Conv2D architecture extracts traffic features
+4️⃣ Dense layers classify into 4 congestion levels
+5️⃣ Predictions update every 60 seconds in real-time!
+Accuracy: ~91% on validation data</template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS CNN</pattern>
+    <template>CNN stands for Convolutional Neural Network 🧠. In our traffic system:
+• Conv layers detect patterns like rush-hour spikes and bottlenecks
+• Pooling layers reduce data while keeping important features
+• BatchNorm layers stabilize training
+• The model learns from historical traffic patterns to predict future congestion
+It's similar to how your eye processes visual patterns, but for traffic data!</template>
+  </category>
+
+  <category>
+    <pattern>HOW ACCURATE IS THE MODEL</pattern>
+    <template>Our CNN achieves approximately 91% accuracy on test data! 📈
+• Free Flow detection: 94% precision
+• Moderate congestion: 89% precision  
+• Heavy congestion: 90% precision
+• Severe congestion: 92% precision
+The model improves over time as it learns more traffic patterns.</template>
+  </category>
+
+  <category>
+    <pattern>WHAT DATA DO YOU USE</pattern>
+    <template>We analyze multiple data streams 📡:
+🚗 Vehicle speed (km/h)
+📊 Traffic volume (vehicles/minute)
+⏱️ Road occupancy (% time occupied)
+🚨 Incident reports
+🌦️ Weather conditions
+🕐 Time of day & day of week
+📍 Road capacity utilization
+🌡️ Temperature & visibility
+All data feeds into the CNN every 60 seconds!</template>
+  </category>
+
+  <!-- ===== ROUTE & TIME ADVICE ===== -->
+  <category>
+    <pattern>BEST TIME TO TRAVEL</pattern>
+    <template>Based on historical patterns 🕐:
+✅ BEST times: 6-7 AM, 10 AM-12 PM, 2-4 PM, after 9 PM
+⚠️ AVOID: 8-10 AM (morning rush), 5-8 PM (evening rush)
+🗓️ Weekends are generally 40-60% less congested than weekdays
+The dashboard shows predicted congestion for any hour!</template>
+  </category>
+
+  <category>
+    <pattern>WHEN SHOULD I TRAVEL</pattern>
+    <template><srai>BEST TIME TO TRAVEL</srai></template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS THE BEST ROUTE</pattern>
+    <template>For best route selection 🗺️:
+1. Check the live map for green (free flow) segments
+2. Avoid red/orange zones — these are congested
+3. Ring Road is often better than expressways during rush hour
+4. NH-48 tends to clear faster after 8 PM
+Monitor the dashboard for real-time updates as conditions change!</template>
+  </category>
+
+  <category>
+    <pattern>HOW DO I AVOID TRAFFIC</pattern>
+    <template>Top tips to beat congestion 🚗💨:
+• Leave before 7:30 AM or after 9:30 AM
+• Use the dashboard predictions to plan your route
+• Monitor the orange/red zones and find alternate paths
+• Consider public transport during peak hours
+• Check weather — rain increases congestion by ~25%!</template>
+  </category>
+
+  <!-- ===== WEATHER IMPACT ===== -->
+  <category>
+    <pattern>HOW DOES WEATHER AFFECT TRAFFIC</pattern>
+    <template>Weather significantly impacts traffic 🌦️:
+🌧️ Rain: +25-40% congestion increase
+🌫️ Fog: +50% congestion (visibility &lt; 100m)
+☀️ Clear: Normal conditions
+⛈️ Storms: +60-80% congestion
+❄️ Haze/smog (common in Delhi): +15-20% increase
+Our CNN model includes weather as a feature to adjust predictions accordingly!</template>
+  </category>
+
+  <category>
+    <pattern>DOES RAIN AFFECT TRAFFIC</pattern>
+    <template>Yes! Rain is one of the biggest congestion factors 🌧️. During rain:
+• Vehicles slow down by 20-30%
+• Volume drops but speed decreases more
+• Accident risk increases (more incidents)
+• Our model predicts rain-adjusted congestion levels automatically</template>
+  </category>
+
+  <!-- ===== SEGMENT-SPECIFIC ===== -->
+  <category>
+    <pattern>HOW IS NH48</pattern>
+    <template>NH-48 (Delhi-Gurgaon) is one of the busiest corridors! 🛣️
+• Capacity: 3000 vehicles/hour
+• Peak hours: 8-10 AM and 6-8 PM are extremely congested
+• Best travel: Before 7:30 AM or after 9 PM
+Check the dashboard for live CNN predictions for this segment!</template>
+  </category>
+
+  <category>
+    <pattern>HOW IS RING ROAD</pattern>
+    <template>Delhi Ring Road is a major arterial route 🔄:
+• Capacity: 2500 vehicles/hour
+• Usually moderately congested throughout the day
+• Evening rush (5-8 PM) sees the heaviest congestion
+• ITO junction and Ashram Chowk are common bottlenecks
+Live status is on the dashboard map!</template>
+  </category>
+
+  <!-- ===== SYSTEM QUERIES ===== -->
+  <category>
+    <pattern>HOW OFTEN IS DATA UPDATED</pattern>
+    <template>Our system updates every 60 seconds! ⚡
+• Sensor data: Every 30 seconds
+• CNN inference: Every 60 seconds
+• Dashboard: Auto-refreshes every 60 seconds
+• Historical analysis: Updated hourly
+You're always seeing predictions based on the latest data!</template>
+  </category>
+
+  <category>
+    <pattern>WHAT IS THIS SYSTEM</pattern>
+    <template>This is the Real-Time Traffic Congestion Prediction System 🚦
+Built with:
+🐍 Python (Flask backend)
+🧠 CNN (TensorFlow/Keras) for prediction
+🤖 AIML for intelligent chatbot assistance
+📊 Real-time dashboard with live maps
+📍 Monitors 6 major Delhi road segments
+The CNN model processes 24-hour traffic patterns to predict future congestion levels!</template>
+  </category>
+
+  <category>
+    <pattern>HELP</pattern>
+    <template>Here's what I can help with 💡:
+❓ "How does prediction work?" — Learn about the CNN model
+🚦 "What is congestion?" — Understand congestion levels
+🕐 "Best time to travel?" — Get timing advice
+🗺️ "Best route?" — Route recommendations
+🌦️ "Weather and traffic?" — Weather impact info
+🛣️ "How is NH48/Ring Road?" — Segment info
+📊 "How accurate is the model?" — Model performance
+Just ask naturally and I'll help!</template>
+  </category>
+
+  <!-- ===== FAREWELLS ===== -->
+  <category>
+    <pattern>BYE</pattern>
+    <template>Safe travels! 🚗✨ Remember to check the dashboard before heading out. Stay safe on the roads!</template>
+  </category>
+
+  <category>
+    <pattern>GOODBYE</pattern>
+    <template><srai>BYE</srai></template>
+  </category>
+
+  <category>
+    <pattern>THANKS</pattern>
+    <template>You're welcome! 😊 Feel free to ask anytime about traffic conditions. Drive safe!</template>
+  </category>
+
+  <category>
+    <pattern>THANK YOU</pattern>
+    <template><srai>THANKS</srai></template>
+  </category>
+
+  <!-- ===== DEFAULT ===== -->
+  <category>
+    <pattern>*</pattern>
+    <template>I'm not sure about that, but I can help with:
+🚦 Traffic predictions and congestion levels
+🗺️ Route recommendations
+🕐 Best travel times
+🧠 How our CNN model works
+Type "help" to see all topics! Or ask about a specific road like "How is NH48?"</template>
+  </category>
+
+</aiml>
